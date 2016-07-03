@@ -16,6 +16,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -119,11 +120,15 @@ public class MainActivity extends AppCompatActivity
         // Add a new student record
         ContentValues values = new ContentValues();
 
-        values.put(InformationsProvider.NAME,"nome");
+        EditText name = (EditText) findViewById(R.id.name);
+        EditText latitude = (EditText) findViewById(R.id.latitude);
+        EditText longitude = (EditText) findViewById(R.id.longitude);
 
-        values.put(InformationsProvider.LATITUDE, 1);
+        values.put(InformationsProvider.NAME, name.getText().toString());
 
-        values.put(InformationsProvider.LONGITUDE, 1);
+        values.put(InformationsProvider.LATITUDE, Double.parseDouble(latitude.getText().toString()));
+
+        values.put(InformationsProvider.LONGITUDE, Double.parseDouble(longitude.getText().toString()));
 
         Uri uri = getContentResolver().insert(
                 InformationsProvider.CONTENT_URI, values);
@@ -135,11 +140,11 @@ public class MainActivity extends AppCompatActivity
     public void onClickRetrieveStudents(View view) {
 
         // Retrieve student records
-        String URL = "content://com.example.provider.Informations/counties";
+        String URL = "content://br.ufc.dc.dspm.provider.Counties/informations";
 
-        Uri students = Uri.parse(URL);
-        Cursor c = managedQuery(students, null, null, null, "name");
-
+        Uri counties = Uri.parse(URL);
+        //Cursor c = managedQuery(counties, null, null, null, "name");
+        Cursor c = getContentResolver().query(counties, null, null, null, "name");
         if (c.moveToFirst()) {
             do{
                 Toast.makeText(this,

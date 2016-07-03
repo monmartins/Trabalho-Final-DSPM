@@ -22,7 +22,7 @@ import android.text.TextUtils;
  */
 public class InformationsProvider extends ContentProvider {
 
-    static final String PROVIDER_NAME = "com.example.provider.Counties";
+    static final String PROVIDER_NAME = "br.ufc.dc.dspm.provider.Counties";
     static final String URL = "content://" + PROVIDER_NAME + "/informations";
     static final Uri CONTENT_URI = Uri.parse(URL);
 
