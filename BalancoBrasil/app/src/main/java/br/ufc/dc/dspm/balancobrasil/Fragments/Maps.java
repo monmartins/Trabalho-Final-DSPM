@@ -1,4 +1,4 @@
-package br.ufc.dc.dspm.balancobrasil;
+package br.ufc.dc.dspm.balancobrasil.Fragments;
 
 import android.app.Fragment;
 import android.location.Location;
@@ -19,6 +19,8 @@ import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.model.CameraPosition;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.MarkerOptions;
+
+import br.ufc.dc.dspm.balancobrasil.R;
 
 public class Maps extends Fragment implements OnMapReadyCallback{
 
@@ -66,8 +68,12 @@ public class Maps extends Fragment implements OnMapReadyCallback{
         this.mMap.clear();
         mMap.setMapType(GoogleMap.MAP_TYPE_HYBRID);
         LatLng location = new LatLng(lc.getLatitude(), lc.getLongitude());
+
+        /**Pegar no banco todos os municipios, colocar na classe Municipio e criar um while para addMarker para todos**/
         MarkerOptions marker = new MarkerOptions().position(location).title(address);
         this.mMap.addMarker(marker);
+
+
         CameraPosition cameraPosition = new CameraPosition.Builder().target(location).zoom(16).build();
         this.mMap.animateCamera(CameraUpdateFactory.newCameraPosition(cameraPosition));
     }

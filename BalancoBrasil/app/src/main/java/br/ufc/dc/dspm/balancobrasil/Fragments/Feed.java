@@ -1,4 +1,4 @@
-package br.ufc.dc.dspm.balancobrasil;
+package br.ufc.dc.dspm.balancobrasil.Fragments;
 
 import android.app.Fragment;
 import android.os.Bundle;
@@ -6,9 +6,16 @@ import android.view.LayoutInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toast;
 
-public class Settings extends Fragment {
+import java.io.IOException;
+import java.util.ArrayList;
 
+import br.ufc.dc.dspm.balancobrasil.Model.Municipio;
+import br.ufc.dc.dspm.balancobrasil.R;
+import br.ufc.dc.dspm.balancobrasil.Util.Arquivo;
+
+public class Feed extends Fragment {
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -17,7 +24,7 @@ public class Settings extends Fragment {
 
         View view;
 
-        view = inflater.inflate(R.layout.fragment_settings, container, false);
+        view = inflater.inflate(R.layout.fragment_feed, container, false);
 
         return view;
     }

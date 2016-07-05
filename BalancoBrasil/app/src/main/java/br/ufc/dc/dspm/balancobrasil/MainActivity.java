@@ -23,7 +23,14 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import br.ufc.dc.dspm.balancobrasil.WebService.QueryTransference;
+import java.io.IOException;
+import java.util.ArrayList;
+
+import br.ufc.dc.dspm.balancobrasil.Fragments.Feed;
+import br.ufc.dc.dspm.balancobrasil.Fragments.Maps;
+import br.ufc.dc.dspm.balancobrasil.Fragments.Settings;
+import br.ufc.dc.dspm.balancobrasil.Model.Municipio;
+import br.ufc.dc.dspm.balancobrasil.Util.Arquivo;
 
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {

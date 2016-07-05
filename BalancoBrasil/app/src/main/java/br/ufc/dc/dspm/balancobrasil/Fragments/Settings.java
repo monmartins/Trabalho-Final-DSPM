@@ -1,4 +1,4 @@
-package br.ufc.dc.dspm.balancobrasil;
+package br.ufc.dc.dspm.balancobrasil.Fragments;
 
 import android.app.Fragment;
 import android.os.Bundle;
@@ -7,7 +7,10 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 
-public class Feed extends Fragment {
+import br.ufc.dc.dspm.balancobrasil.R;
+
+public class Settings extends Fragment {
+
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -16,7 +19,7 @@ public class Feed extends Fragment {
 
         View view;
 
-        view = inflater.inflate(R.layout.fragment_feed, container, false);
+        view = inflater.inflate(R.layout.fragment_settings, container, false);
 
         return view;
     }
