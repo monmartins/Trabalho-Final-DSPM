@@ -6,14 +6,8 @@ import android.view.LayoutInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Toast;
 
-import java.io.IOException;
-import java.util.ArrayList;
-
-import br.ufc.dc.dspm.balancobrasil.Model.Municipio;
 import br.ufc.dc.dspm.balancobrasil.R;
-import br.ufc.dc.dspm.balancobrasil.Util.Arquivo;
 
 public class Feed extends Fragment {
 
