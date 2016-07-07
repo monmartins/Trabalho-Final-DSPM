@@ -23,9 +23,13 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import br.ufc.dc.dspm.balancobrasil.Fragments.Consultas;
 import br.ufc.dc.dspm.balancobrasil.Fragments.Feed;
 import br.ufc.dc.dspm.balancobrasil.Fragments.Maps;
+import br.ufc.dc.dspm.balancobrasil.Fragments.Principal;
 import br.ufc.dc.dspm.balancobrasil.Fragments.Settings;
+
+//chave projeto: AIzaSyB8h3GQTS1Vm1wpNPBjicqY9-msZy3CWCo
 
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
@@ -118,7 +122,13 @@ public class MainActivity extends AppCompatActivity
         String title = "BalancoBrasil";
 
         //Change for fragment is better
-        if (id == R.id.nav_map) {
+        if (id == R.id.nav_principal) {
+            fragment = new Principal();
+            title = "Principal";
+        } else if (id == R.id.nav_consultas) {
+            fragment = new Consultas();
+            title = "Consultas";
+        }else if (id == R.id.nav_map) {
             fragment = new Maps();
             title = "Mapa";
         } else if (id == R.id.nav_feed) {

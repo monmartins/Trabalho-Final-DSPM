@@ -77,11 +77,11 @@ public class Maps extends Fragment implements OnMapReadyCallback{
         for(int i=0 ; i< municipios.size();i++){
             LatLng municipioLocation = new LatLng(municipios.get(i).getLatitude(),municipios.get(i).getLongitude());
             mMap.addMarker(new MarkerOptions().position(municipioLocation).title(municipios.get(i).getName()));
-            if(municipios.get(i).getName().equalsIgnoreCase("Quixeramobim"));
-
-            //Posicionamento de camera
-            CameraPosition cameraPosition = new CameraPosition.Builder().target(municipioLocation).zoom(8).build();
-            mMap.animateCamera(CameraUpdateFactory.newCameraPosition(cameraPosition));
+            if(municipios.get(i).getName().equalsIgnoreCase("Quixeramobim")) {
+                //Posicionamento de camera
+                CameraPosition cameraPosition = new CameraPosition.Builder().target(municipioLocation).zoom(8).build();
+                mMap.animateCamera(CameraUpdateFactory.newCameraPosition(cameraPosition));
+            }
         }
         mMap.addMarker(new MarkerOptions().position(location).title("UFC - Bloco Computação"));
 

@@ -7,10 +7,20 @@
         android:checkableBehavior="none">
 
         <item
+            android:id="@+id/nav_principal"
+            android:icon="@drawable/ic_principal"
+            android:title="Principal" />
+        <item
+            android:id="@+id/nav_consultas"
+            android:icon="@drawable/ic_consulta"
+            android:title="Consultas" />
+        <item
             android:id="@+id/nav_map"
+            android:icon="@drawable/ic_map"
             android:title="Mapa" />
         <item
             android:id="@+id/nav_feed"
+            android:icon="@drawable/ic_feed"
             android:title="Feed de notícias" />
     </group>
 
