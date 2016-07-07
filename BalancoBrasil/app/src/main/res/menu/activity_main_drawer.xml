@@ -7,10 +7,6 @@
         android:checkableBehavior="none">
 
         <item
-            android:id="@+id/nav_principal"
-            android:icon="@drawable/ic_principal"
-            android:title="Principal" />
-        <item
             android:id="@+id/nav_consultas"
             android:icon="@drawable/ic_consulta"
             android:title="Consultas" />
@@ -22,6 +18,10 @@
             android:id="@+id/nav_feed"
             android:icon="@drawable/ic_feed"
             android:title="Feed de notícias" />
+        <item
+            android:id="@+id/nav_principal"
+            android:icon="@drawable/ic_principal"
+            android:title="Principal" />
     </group>
 
     <group
@@ -39,3 +39,4 @@
     </group>
 
 </menu>
+

@@ -1,17 +1,19 @@
 package br.ufc.dc.dspm.balancobrasil.Fragments;
 
+import android.Manifest;
 import android.app.Fragment;
+import android.content.pm.PackageManager;
 import android.content.res.AssetManager;
 import android.location.Location;
-import android.support.v7.app.AppCompatActivity;
+import android.location.LocationListener;
 import android.os.Bundle;
+import android.support.v4.app.ActivityCompat;
 import android.view.LayoutInflater;
-import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.RelativeLayout;
 import android.widget.Toast;
 
+import com.google.android.gms.common.ConnectionResult;
 import com.google.android.gms.common.api.GoogleApiClient;
 import com.google.android.gms.location.LocationServices;
 import com.google.android.gms.maps.CameraUpdateFactory;
@@ -27,16 +29,18 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.util.ArrayList;
-import java.util.LinkedList;
 
 import br.ufc.dc.dspm.balancobrasil.Model.Municipio;
+import br.ufc.dc.dspm.balancobrasil.Query;
 import br.ufc.dc.dspm.balancobrasil.R;
 
-public class Maps extends Fragment implements OnMapReadyCallback{
+public class Maps extends Fragment implements OnMapReadyCallback, GoogleApiClient.ConnectionCallbacks, GoogleApiClient.OnConnectionFailedListener, LocationListener {
 
     private static View view;
     private GoogleApiClient googleApiClient;
     private GoogleMap mMap;
+    private Query query = new Query();
+
     /**
      * Note that this may be null if the Google Play services APK is not
      * available.
@@ -48,12 +52,14 @@ public class Maps extends Fragment implements OnMapReadyCallback{
 
         view = inflater.inflate(R.layout.fragment_maps, container, false);
 
+
+
         return view;
     }
 
     @Override
     public void onViewCreated(View view, Bundle savedInstanceState) {
-        super.onViewCreated(view,savedInstanceState);
+        super.onViewCreated(view, savedInstanceState);
 
         MapFragment fragment = (MapFragment) getChildFragmentManager().findFragmentById(R.id.map);
 
@@ -68,6 +74,8 @@ public class Maps extends Fragment implements OnMapReadyCallback{
 
         LatLng location = new LatLng(-3.7460927, -38.5743825);
 
+//        Location locationAtual = LocationServices.FusedLocationApi.getLastLocation(googleApiClient);
+        LatLng locationAtual = new LatLng(-3.7460927, -38.5743825);
         /**Pegar no banco todos os municipios, colocar na classe Municipio e criar um while para addMarker para todos**/
 
         ArrayList<Municipio> municipios = new ArrayList<Municipio>();
@@ -77,13 +85,11 @@ public class Maps extends Fragment implements OnMapReadyCallback{
         for(int i=0 ; i< municipios.size();i++){
             LatLng municipioLocation = new LatLng(municipios.get(i).getLatitude(),municipios.get(i).getLongitude());
             mMap.addMarker(new MarkerOptions().position(municipioLocation).title(municipios.get(i).getName()));
-            if(municipios.get(i).getName().equalsIgnoreCase("Quixeramobim")) {
-                //Posicionamento de camera
-                CameraPosition cameraPosition = new CameraPosition.Builder().target(municipioLocation).zoom(8).build();
-                mMap.animateCamera(CameraUpdateFactory.newCameraPosition(cameraPosition));
-            }
         }
-        mMap.addMarker(new MarkerOptions().position(location).title("UFC - Bloco Computação"));
+        mMap.addMarker(new MarkerOptions().position(locationAtual).title("You are here"));
+        //Posicionamento de camera
+        CameraPosition cameraPosition = new CameraPosition.Builder().target(locationAtual).zoom(8).build();
+        mMap.animateCamera(CameraUpdateFactory.newCameraPosition(cameraPosition));
 
         //mMap.moveCamera(CameraUpdateFactory.newLatLng(location));
     }
@@ -103,6 +109,8 @@ public class Maps extends Fragment implements OnMapReadyCallback{
     }
 
     public ArrayList<Municipio> readFile() {
+
+//        query.getCapsName(getActivity(),getResources());
         /*
             Dados dos municipios encontrados em : http://www.mbi.com.br/mbi/biblioteca/utilidades/dddcepce/
          */
@@ -126,7 +134,7 @@ public class Maps extends Fragment implements OnMapReadyCallback{
                 latitudeMunicipio = Double.parseDouble(bufferedReader.readLine());
                 longitudeMunicipio = Double.parseDouble(bufferedReader.readLine());
 
-                Municipio municipio = new Municipio(nomeMunicipio,latitudeMunicipio,longitudeMunicipio);
+                Municipio municipio = new Municipio(nomeMunicipio,latitudeMunicipio,longitudeMunicipio,"0");
 
                 municipios.add(municipio);
             }
@@ -138,6 +146,41 @@ public class Maps extends Fragment implements OnMapReadyCallback{
         }
 
         return municipios;
+    }
+
+    @Override
+    public void onConnected(Bundle bundle) {
+
+    }
+
+    @Override
+    public void onConnectionSuspended(int i) {
+
+    }
+
+    @Override
+    public void onLocationChanged(Location location) {
+
+    }
+
+    @Override
+    public void onStatusChanged(String s, int i, Bundle bundle) {
+
+    }
+
+    @Override
+    public void onProviderEnabled(String s) {
+
+    }
+
+    @Override
+    public void onProviderDisabled(String s) {
+
+    }
+
+    @Override
+    public void onConnectionFailed(ConnectionResult connectionResult) {
+
     }
 }
 

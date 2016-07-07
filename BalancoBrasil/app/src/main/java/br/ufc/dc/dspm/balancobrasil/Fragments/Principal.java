@@ -1,18 +1,13 @@
 package br.ufc.dc.dspm.balancobrasil.Fragments;
 
-import android.app.Fragment;
 import android.content.Context;
 import android.content.pm.ActivityInfo;
 import android.os.Bundle;
-import android.support.design.widget.NavigationView;
 import android.support.design.widget.TabLayout;
 import android.support.v4.view.PagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
 import android.widget.TabHost;
 
 import br.ufc.dc.dspm.balancobrasil.Adapter.TabMainActivityAdapter;
@@ -22,7 +17,7 @@ import br.ufc.dc.dspm.balancobrasil.R;
 /**
  * Created by Vasco on 06/07/2016.
  */
-public class Principal extends AppCompatActivity  {
+public class Principal extends AppCompatActivity {
 
     Query query = new Query();
     Context context = this;

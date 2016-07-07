@@ -20,7 +20,7 @@
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dip"
-            android:text="Category:"
+            android:text="Municípios:"
             android:layout_marginBottom="5dp"/>
 
         <Spinner
@@ -39,7 +39,7 @@
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dip"
-            android:text="Category:"
+            android:text="Setor:"
             android:layout_marginBottom="5dp"/>
 
         <Spinner
@@ -58,7 +58,7 @@
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dip"
-            android:text="Category:"
+            android:text="Fonte Finalidade:"
             android:layout_marginBottom="5dp"/>
 
         <Spinner
@@ -77,7 +77,7 @@
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dip"
-            android:text="Category:"
+            android:text="Valor:"
             android:layout_marginBottom="5dp"/>
 
         <Spinner

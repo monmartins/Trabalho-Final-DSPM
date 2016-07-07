@@ -9,14 +9,20 @@ import retrofit2.http.Body;
 import retrofit2.http.POST;
 
 public interface ApiEndpointInterface {
-    String BASE_URL = "http://192.168.1.8:8000/";
+    String BASE_URL = "http://ec2-52-24-201-142.us-west-2.compute.amazonaws.com:80/";
 
     /* @GET("/2.2/questions?order=desc&sort=creation&site=stackoverflow")
     Call<StackOverflowQuestions> loadQuestions(@Query("tagged") String tags);*/
 
 
     @POST("/query")
-    Call<Integer> getQuery(@Body QueryTransference queryTransferenceuery);
+    Call<Integer> getQuery(@Body QueryTransference queryTransference);
+    @POST("/query")
+    Call<List<List<String>>> getConsult(@Body Query query);
+    @POST("/query")
+    Call<List<String>> getCapsName(@Body Query query);
+
+
     @POST("/feed")
     Call<Integer> getFeed(@Body QueryFeed queryFeed);
 

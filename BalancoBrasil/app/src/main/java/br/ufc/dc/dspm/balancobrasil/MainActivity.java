@@ -1,17 +1,20 @@
 package br.ufc.dc.dspm.balancobrasil;
 
+import android.Manifest;
+import android.app.Fragment;
 import android.app.FragmentManager;
 import android.content.ContentValues;
 import android.content.Context;
 import android.content.Intent;
+import android.content.pm.PackageManager;
 import android.database.Cursor;
+import android.location.Location;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
-import android.app.Fragment;
-import android.view.View;
 import android.support.design.widget.NavigationView;
+import android.support.design.widget.Snackbar;
+import android.support.v4.app.ActivityCompat;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
@@ -19,22 +22,31 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import com.google.android.gms.common.ConnectionResult;
+import com.google.android.gms.common.api.GoogleApiClient;
+import com.google.android.gms.location.LocationServices;
+import com.google.android.gms.maps.model.LatLng;
 
 import br.ufc.dc.dspm.balancobrasil.Fragments.Consultas;
 import br.ufc.dc.dspm.balancobrasil.Fragments.Feed;
 import br.ufc.dc.dspm.balancobrasil.Fragments.Maps;
 import br.ufc.dc.dspm.balancobrasil.Fragments.Principal;
 import br.ufc.dc.dspm.balancobrasil.Fragments.Settings;
+import com.google.android.gms.location.LocationListener;
+import com.google.android.gms.location.LocationServices;
 
 //chave projeto: AIzaSyB8h3GQTS1Vm1wpNPBjicqY9-msZy3CWCo
 
 public class MainActivity extends AppCompatActivity
-        implements NavigationView.OnNavigationItemSelectedListener {
+        implements NavigationView.OnNavigationItemSelectedListener{
     Query query = new Query();
     Context context = this;
+    int escolhaConsulta;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -47,7 +59,7 @@ public class MainActivity extends AppCompatActivity
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                query.query(3534l,context);
+                query.query(3534l, context);
                 Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
                         .setAction("Action", null).show();
             }
@@ -74,7 +86,11 @@ public class MainActivity extends AppCompatActivity
         TextView helloUser = (TextView) header.findViewById(R.id.helloUser);
         helloUser.setText("Olá, camarada!");
 
+        FragmentManager fm = getFragmentManager();
+        fm.beginTransaction().replace(R.id.content_frame, new Consultas()).commit();
+
     }
+
 
     @Override
     public void onBackPressed() {
@@ -123,22 +139,28 @@ public class MainActivity extends AppCompatActivity
 
         //Change for fragment is better
         if (id == R.id.nav_principal) {
+            escolhaConsulta = 0;
             Intent intent = new Intent(this,Principal.class);
             startActivity(intent);
             title = "Principal";
         } else if (id == R.id.nav_consultas) {
+            escolhaConsulta = 1;
             fragment = new Consultas();
             title = "Consultas";
         }else if (id == R.id.nav_map) {
+            escolhaConsulta = 2;
             fragment = new Maps();
             title = "Mapa";
         } else if (id == R.id.nav_feed) {
+            escolhaConsulta = 3;
             fragment = new Feed();
             title = "Feed de Notícias";
         } else if (id == R.id.nav_settings) {
+            escolhaConsulta = 4;
             fragment = new Settings();
             title = "Configurações";
         } else if (id == R.id.nav_signout) {
+            escolhaConsulta = 5;
             finish();
         }
 
@@ -199,4 +221,24 @@ public class MainActivity extends AppCompatActivity
             } while (c.moveToNext());
         }
     }
+//    public void comando(View view){
+//        if(escolhaConsulta ==0){//principal
+//
+//        }
+//        if(escolhaConsulta ==1){//Consulta
+//            query.consult(context,);
+//        }
+//        if(escolhaConsulta ==2){//Map
+////            query.query(3534l, context);
+//        }
+//        if(escolhaConsulta ==3){//Feed
+////            query.query(3534l, context);
+//        }
+//        else{
+//            query.query(3534l, context);
+//        }
+//
+//
+//    }
+
 }

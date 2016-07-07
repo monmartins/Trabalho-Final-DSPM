@@ -9,7 +9,7 @@ import android.support.v4.app.FragmentPagerAdapter;
 /**
  * Created by Vasco on 07/07/2016.
  */
-public class TabMainActivityAdapter extends FragmentPagerAdapter{
+public class TabMainActivityAdapter extends FragmentPagerAdapter {
     int tabCount;
     Intent intent;
 

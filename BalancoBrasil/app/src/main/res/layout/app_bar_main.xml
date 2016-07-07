@@ -36,6 +36,7 @@
         android:layout_alignParentBottom="true"
         android:layout_alignParentRight="true"
         android:layout_margin="8dp"
-        android:src="@android:drawable/ic_dialog_email" />
+        android:src="@android:drawable/ic_dialog_email"
+        android:onClick="comando"/>
 
 </RelativeLayout>
