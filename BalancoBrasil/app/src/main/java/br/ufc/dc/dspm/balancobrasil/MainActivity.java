@@ -123,7 +123,8 @@ public class MainActivity extends AppCompatActivity
 
         //Change for fragment is better
         if (id == R.id.nav_principal) {
-            fragment = new Principal();
+            Intent intent = new Intent(this,Principal.class);
+            startActivity(intent);
             title = "Principal";
         } else if (id == R.id.nav_consultas) {
             fragment = new Consultas();
