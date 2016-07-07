@@ -1,11 +1,228 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical" android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:id="@+id/linearLayoutSettings"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@android:color/white"
+    android:fitsSystemWindows="false"
+    android:orientation="vertical">
 
-
-    <CheckBox
+    <ScrollView
+        android:id="@+id/scrollView"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="SETTINGS"/>
+        android:layout_height="fill_parent"
+        android:scrollbarThumbVertical="@drawable/scrollbar"
+        android:scrollbars="vertical">
+
+        <FrameLayout
+            android:id="@+id/contentLayout"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@android:color/white">
+
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:clickable="true"
+                android:focusableInTouchMode="true"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/tv_label_notificação"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="24dp"
+                    android:layout_marginRight="24dp"
+                    android:layout_marginTop="16dp"
+                    android:fontFamily="sans-serif-medium"
+                    android:gravity="center_vertical"
+                    android:text="Notificações"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Subhead.Inverse"
+                    android:textColor="?attr/colorAccent"
+                    android:textSize="14sp" />
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="56dp"
+                    android:layout_marginEnd="8dp"
+                    android:layout_marginLeft="8dp"
+                    android:layout_marginRight="8dp"
+                    android:layout_marginStart="8dp">
+
+                    <FrameLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="0dp"
+                        android:layout_alignParentBottom="true"
+                        android:layout_marginTop="8dp"
+                        android:background="@color/md_divider" />
+
+                    <android.support.v7.widget.SwitchCompat
+                        android:id="@+id/switchWidget"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_alignParentEnd="true"
+                        android:layout_alignParentRight="true"
+                        android:layout_centerVertical="true"
+                        android:padding="16dp"
+                        android:text="Permitir notificações"
+                        android:textAppearance="@style/TextAppearance.AppCompat.Inverse"
+                        android:textColor="@color/md_text"
+                        android:textSize="16sp" />
+                </RelativeLayout>
+
+                <TextView
+                    android:id="@+id/tv_ConfiguraçõesAvançadas"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="24dp"
+                    android:layout_marginRight="24dp"
+                    android:layout_marginTop="16dp"
+                    android:fontFamily="sans-serif-medium"
+                    android:gravity="center_vertical"
+                    android:text="Configurações Avançadas"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Subhead.Inverse"
+                    android:textColor="?attr/colorAccent"
+                    android:textSize="14sp" />
+
+                <RelativeLayout
+                    android:id="@+id/y"
+                    android:layout_width="match_parent"
+                    android:layout_height="88dp"
+                    android:layout_marginLeft="16dp"
+                    android:layout_marginRight="16dp"
+                    android:background="?attr/selectableItemBackground">
+
+                    <ImageView
+                        android:id="@+id/imageViewPhone3"
+                        android:layout_width="24dp"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:layout_marginLeft="8dp"
+                        android:padding="-6dp"
+                        android:src="@drawable/ic_hardware_phone_android_3"
+                        android:tint="?attr/colorAccent" />
+
+                    <ImageView
+                        android:id="@+id/imageViewPhone2"
+                        android:layout_width="24dp"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:layout_marginLeft="8dp"
+                        android:padding="-6dp"
+                        android:src="@drawable/ic_hardware_phone_android_2"
+                        android:tint="?attr/colorPrimary" />
+
+                    <ImageView
+                        android:id="@+id/imageViewPhone"
+                        android:layout_width="24dp"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:layout_marginLeft="8dp"
+                        android:padding="-6dp"
+                        android:src="@drawable/ic_hardware_phone_android"
+                        android:tint="?attr/colorAccent" />
+
+                    <LinearLayout
+                        android:id="@+id/linearLayout2"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:layout_marginLeft="64dp"
+                        android:gravity="center_vertical"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:id="@+id/textViewTheme"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginEnd="8dp"
+                            android:layout_marginRight="8dp"
+                            android:text="Selecione tema do App"
+                            android:textAppearance="@style/TextAppearance.AppCompat.Inverse"
+                            android:textColor="@color/md_text"
+                            android:textSize="16sp" />
+
+                        <TextView
+                            android:id="@+id/textViewThemeDescription"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginEnd="8dp"
+                            android:layout_marginRight="8dp"
+                            android:text="Pressione para mudar a primary, primary dark e accent colors"
+                            android:textAppearance="@style/TextAppearance.AppCompat.Inverse"
+                            android:textColor="@color/md_secondary_text_icons"
+                            android:textSize="14sp" />
+
+                    </LinearLayout>
+
+                </RelativeLayout>
+
+                <TextView
+                    android:id="@+id/tv_label_Sobre"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="24dp"
+                    android:layout_marginRight="24dp"
+                    android:layout_marginTop="16dp"
+                    android:fontFamily="sans-serif-medium"
+                    android:gravity="center_vertical"
+                    android:text="Sobre"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Subhead.Inverse"
+                    android:textColor="?attr/colorAccent"
+                    android:textSize="14sp" />
+
+                <RelativeLayout
+                    android:id="@+id/x"
+                    android:layout_width="match_parent"
+                    android:layout_height="88dp"
+                    android:layout_marginLeft="16dp"
+                    android:layout_marginRight="16dp"
+                    android:background="?attr/selectableItemBackground">
+
+                    <ImageView
+                        android:id="@+id/imagePessoas"
+                        android:layout_width="24dp"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:layout_marginLeft="8dp"
+                        android:padding="-6dp"
+                        android:src="@android:drawable/ic_menu_info_details"
+                        android:tint="?attr/colorAccent" />
+
+                    <LinearLayout
+                        android:id="@+id/linearLayout3"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:layout_marginLeft="64dp"
+                        android:gravity="center_vertical"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:id="@+id/tv_desenvolvedores"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginEnd="8dp"
+                            android:layout_marginRight="8dp"
+                            android:text="Desenvolvedores"
+                            android:textAppearance="@style/TextAppearance.AppCompat.Inverse"
+                            android:textColor="@color/md_text"
+                            android:textSize="16sp" />
+
+                        <TextView
+                            android:id="@+id/tv_desenvolvedores_nomes"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginEnd="8dp"
+                            android:layout_marginRight="8dp"
+                            android:text="Alysson Macedo, Ramon Martins, Lucas Vasconcelos e Thiago Mendonça"
+                            android:textAppearance="@style/TextAppearance.AppCompat.Inverse"
+                            android:textColor="@color/md_secondary_text_icons"
+                            android:textSize="14sp" />
+                    </LinearLayout>
+                </RelativeLayout>
+
+            </LinearLayout>
+        </FrameLayout>
+    </ScrollView>
 </LinearLayout>
